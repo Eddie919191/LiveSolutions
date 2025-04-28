@@ -1,7 +1,8 @@
-const { Configuration, OpenAIApi } = require('openai');
+const OpenAI = require('openai');
 
 exports.handler = async (event) => {
-  console.log('Function invoked with event:', event);
+  console.log('Function invoked:', event);
+
   if (event.httpMethod !== 'POST') {
     console.log('Method not allowed');
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -15,9 +16,8 @@ exports.handler = async (event) => {
     return { statusCode: 500, body: JSON.stringify({ error: 'Missing OPENAI_API_KEY' }) };
   }
 
-  const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
-  const openai = new OpenAIApi(configuration);
-  console.log('OpenAI configuration set');
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  console.log('OpenAI client initialized');
 
   const prompt = `
     Du er LS Bot, en assistent for LS LiveSolutions. Kunden spør: "${message}". 
@@ -31,13 +31,13 @@ exports.handler = async (event) => {
   console.log('Prompt created:', prompt);
 
   try {
-    const response = await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo', // Changed to gpt-3.5-turbo for broader access
+    const response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 500,
     });
-    console.log('OpenAI response:', response.data);
-    const reply = response.data.choices[0].message.content || 'Ingen svar fra OpenAI.';
+    console.log('OpenAI response:', response);
+    const reply = response.choices[0].message.content || 'Ingen svar fra OpenAI.';
     return {
       statusCode: 200,
       body: JSON.stringify({ reply }),
