@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LS LiveSolutions: Møterom og sceneproduksjon i Norge">
+  <meta name="keywords" content="møterom løsninger, sceneproduksjon, AV utstyr, Norge">
+  <title>LS LiveSolutions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="LS LiveSolutions Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="about.html">Om Oss</a></li>
+        <li><a href="solutions.html">Tidligere Løsninger</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>LS LiveSolutions: Skaper Uforglemmelige Rom & Arrangementer</h1>
+      <div class="hero-images">
+        <img src="img/office.jpg" alt="Moderne møterom med AV-utstyr" class="hero-img">
+        <img src="img/stage.jpg" alt="Sceneproduksjon med lys og lyd" class="hero-img">
+      </div>
+    </section>
+    <section class="chat-section">
+      <button id="open-chat">Start Chat</button>
+      <div id="chatbox" class="chatbox hidden">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Hva kan vi hjelpe deg med? Møterom? DJs? Sceneutstyr?">
+        <button id="send-message">Send</button>
+        <button id="download-chat">Last Ned Chat</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>LS LiveSolutions AS<br>
+    [Lageradresse, f.eks. Industriveien 123, 1234 Oslo]<br>
+    Telefon: [+47 123 45 678]<br>
+    E-post: [info@livesolutionss.no]<br>
+    <a href="/privacy.html">Personvernerklæring</a></p>
+  </footer>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

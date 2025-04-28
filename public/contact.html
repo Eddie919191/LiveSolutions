@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt - LS LiveSolutions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="LS LiveSolutions Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om Oss</a></li>
+        <li><a href="solutions.html">Tidligere Løsninger</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="contact">
+      <h1>Kontakt Oss</h1>
+      <p>LS LiveSolutions AS<br>[Lageradresse, f.eks. Industriveien 123, 1234 Oslo]<br>Telefon: [+47 123 45 678]<br>E-post: [info@livesolutionss.no]</p>
+      <form id="contact-form">
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">E-post:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Melding:</label>
+        <textarea id="message" name="message" required></textarea>
+        <label><input type="checkbox" name="consent" required> Jeg samtykker til at mine data lagres i henhold til <a href="/privacy.html">personvernerklæringen</a>.</label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>LS LiveSolutions AS<br>[Lageradresse]<br>Telefon: [+47 123 45 678]<br>E-post: [info@livesolutionss.no]<br><a href="/privacy.html">Personvernerklæring</a></p>
+  </footer>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alert('Form submission placeholder. Add Netlify Forms or Firebase integration later.');
+    });
+  </script>
+</body>
+</html>
