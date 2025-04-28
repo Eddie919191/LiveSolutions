@@ -2,17 +2,17 @@
 // These scripts are added globally and don't need to be in HTML
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCZXHTj7Hgd7nFZURpq19YlC4lRBc9hqTI",
-    authDomain: "livesolutions-d95f7.firebaseapp.com",
-    projectId: "livesolutions-d95f7",
-    storageBucket: "livesolutions-d95f7.firebasestorage.app",
-    messagingSenderId: "245878851136",
-    appId: "1:245878851136:web:8a1f66c90f11ab77cc41a5",
-    measurementId: "G-8QGL3FRESK"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  const storage = firebase.storage();
+  apiKey: "AIzaSyCZXHTj7Hgd7nFZURpq19YlC4lRBc9hqTI",
+  authDomain: "livesolutions-d95f7.firebaseapp.com",
+  projectId: "livesolutions-d95f7",
+  storageBucket: "livesolutions-d95f7.firebasestorage.app",
+  messagingSenderId: "245878851136",
+  appId: "1:245878851136:web:8a1f66c90f11ab77cc41a5",
+  measurementId: "G-8QGL3FRESK"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
   
   // Rest of the chat.js code remains unchanged
 
