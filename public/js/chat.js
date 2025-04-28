@@ -93,17 +93,22 @@ async function searchProducts(query) {
 
 // Search bills in Firebase Storage
 async function searchBills(query) {
-  const categories = ['office', 'auditorium', 'events'];
-  const bills = [];
-  for (const category of categories) {
-    const ref = storage.ref(`bills/${category}`);
-    const list = await ref.listAll();
-    for (const item of list.items) {
-      const metadata = await item.getMetadata();
-      if (metadata.customMetadata.description?.toLowerCase().includes(query.toLowerCase())) {
-        bills.push({ name: item.name, metadata });
+  const billFolders = ['bills/office', 'bills/auditorium', 'bills/events'];
+  let matchingBills = [];
+  for (const folder of billFolders) {
+    const folderRef = storage.ref(folder);
+    const fileList = await folderRef.listAll();
+    for (const fileRef of fileList.items) {
+      try {
+        const metadata = await fileRef.getMetadata();
+        const description = metadata.customMetadata?.description || ''; // Fallback to empty string
+        if (description && description.toLowerCase().includes(query.toLowerCase())) {
+          matchingBills.push({ name: fileRef.name, description });
+        }
+      } catch (error) {
+        console.error(`Error fetching metadata for ${fileRef.name}:`, error);
       }
     }
   }
-  return bills;
+  return matchingBills;
 }
