@@ -6,6 +6,10 @@ exports.handler = async (event) => {
   }
 
   const { message, chatHistory, products, bills } = JSON.parse(event.body);
+  if (!process.env.OPENAI_API_KEY) {
+    return { statusCode: 500, body: JSON.stringify({ error: 'Missing OPENAI_API_KEY' }) };
+  }
+
   const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
   const openai = new OpenAIApi(configuration);
 
@@ -25,11 +29,13 @@ exports.handler = async (event) => {
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 500,
     });
+    const reply = response.data.choices[0].message.content || 'Ingen svar fra OpenAI.';
     return {
       statusCode: 200,
-      body: JSON.stringify({ reply: response.data.choices[0].message.content }),
+      body: JSON.stringify({ reply }),
     };
   } catch (error) {
+    console.error('OpenAI Error:', error.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.message }),
