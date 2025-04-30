@@ -27,13 +27,48 @@
     <section class="contact">
       <h1>Kontakt Oss</h1>
       <p>Har du spørsmål om AV-løsninger for ditt kontor eller møterom? Ta kontakt med oss, så hjelper vi deg med å finne den perfekte løsningen!</p>
-      <img src="img/office-team.jpg" alt="Our Team at Work" class="contact-img">
-      <p>LS LiveSolutions AS<br>Industriveien 123, 1234 Oslo<br>Telefon: +47 123 45 678<br>E-post: info@livesolutions.no</p>
-
+      <div class="contact-info">
+        <p><strong>LS LiveSolutions AS</strong><br>Eplehagan 4, 3084 Holmestrand<br>Org.nr: 920 859 623</p>
+        <h2>Våre Ansatte</h2>
+        <ul class="employee-list">
+          <li>
+            <h3>Jens Petter Kvaal</h3>
+            <p>CEO<br>+47 400 20 495<br><a href="mailto:Jp@livesolutions.no">Jp@livesolutions.no</a></p>
+          </li>
+          <li>
+            <h3>Mette Rud</h3>
+            <p>Booking deejays & artist<br>+47 936 92 192<br><a href="mailto:mette@livesolutions.no">mette@livesolutions.no</a></p>
+          </li>
+          <li>
+            <h3>Rolf Kristian Kuhne</h3>
+            <p>Technician<br>+47 481 08 328<br><a href="mailto:rkk@livesolutions.no">rkk@livesolutions.no</a></p>
+          </li>
+          <li>
+            <h3>Vigulf Semb Røren</h3>
+            <p>Responsible for rental<br>+47 922 02 553<br><a href="mailto:Vr@livesolutions.no">Vr@livesolutions.no</a></p>
+          </li>
+        </ul>
+      </div>
+      <form id="contact-form">
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">E-post:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Melding:</label>
+        <textarea id="message" name="message" required></textarea>
+        <label><input type="checkbox" name="consent" required> Jeg samtykker til at mine data lagres i henhold til <a href="/privacy.html">personvernerklæringen</a>.</label>
+        <button type="submit">Send</button>
+      </form>
     </section>
   </main>
   <footer>
-    <p>LS LiveSolutions AS<br>Industriveien 123, 1234 Oslo<br>Telefon: +47 123 45 678<br>E-post: info@livesolutions.no<br><a href="/privacy.html">Personvernerklæring</a></p>
+    <p>LS LiveSolutions AS<br>Eplehagan 4, 3084 Holmestrand<br>Telefon: +47 123 45 678<br>E-post: info@livesolutions.no<br><a href="/privacy.html">Personvernerklæring</a></p>
   </footer>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alert('Form submission placeholder. Add Netlify Forms or Firebase integration later.');
+    });
+  </script>
 </body>
 </html>
