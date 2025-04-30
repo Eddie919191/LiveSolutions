@@ -156,14 +156,14 @@ nav ul li a:hover {
   text-align: right;
 }
 
-.user-message + .bot-message {
-  margin-top: 20px; /* Add spacing between user and bot messages for better readability */
-}
-
 /* Bot messages on the left */
 .bot-message {
   background: #333; /* Darker background for bot messages */
   text-align: left;
+}
+
+.user-message + .bot-message {
+  margin-top: 20px; /* Add spacing between user and bot messages for better readability */
 }
 
 #chat-input-area {
@@ -275,7 +275,7 @@ nav ul li a:hover {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
-
+} /* Added missing closing brace here */
 
 .employee-list {
   list-style: none;
