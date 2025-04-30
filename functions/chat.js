@@ -1,5 +1,5 @@
 const OpenAI = require('openai');
-const avPackages = require('./packages'); // ← Husk å opprette packages.js
+// const avPackages = require('./packages'); // ← Husk å opprette packages.js
 
 exports.handler = async (event) => {
   console.log('Function invoked:', event);
