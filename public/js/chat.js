@@ -16,6 +16,7 @@ const storage = firebase.storage();
 
 // Chat state
 let chatHistory = [];
+let orderSent = false; // Flag to track if an order has been sent
 
 // DOM elements
 const chatbox = document.getElementById('chatbox');
@@ -58,6 +59,12 @@ chatInput.addEventListener('keypress', async (e) => {
     appendMessage('Du', message);
     chatInput.value = '';
 
+    // Skip further processing if an order has already been sent
+    if (orderSent) {
+      appendMessage('LS Bot', 'Takk, Edward! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 😊');
+      return;
+    }
+
     // Query Firebase for relevant products/bills
     const products = await searchProducts(message);
     const bills = await searchBills(message);
@@ -91,7 +98,7 @@ chatInput.addEventListener('keypress', async (e) => {
       const isAskingForContact = reply.match(/navn, e-postadresse og telefonnummer/i);
       const hasContactInfo = message.match(/(navn|e-post|telefon)/i) && message.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i);
 
-      if (isAskingForContact && hasContactInfo) {
+      if (isAskingForContact && hasContactInfo && !orderSent) {
         const orderDetails = {
           userMessage: message,
           products: products.map(p => p.name),
@@ -99,6 +106,7 @@ chatInput.addEventListener('keypress', async (e) => {
           timestamp: new Date().toISOString(),
         };
         await saveOrder(orderDetails);
+        orderSent = true; // Set flag to prevent further orders
       }
     } catch (error) {
       console.error('Error calling OpenAI:', error);
@@ -123,12 +131,12 @@ downloadChatBtn.addEventListener('click', () => {
 function appendMessage(sender, message) {
   const div = document.createElement('div');
   div.textContent = `${sender}: ${message}`;
-  div.style.opacity = '0'; // Start with 0 opacity
-  div.style.transition = 'opacity 0.5s ease-in'; // Smooth fade-in over 0.5s
+  div.style.opacity = '0';
+  div.style.transition = 'opacity 0.5s ease-in';
   chatMessages.appendChild(div);
   setTimeout(() => {
-    div.style.opacity = '1'; // Fade in
-  }, 10); // Small delay to trigger transition
+    div.style.opacity = '1';
+  }, 10);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
