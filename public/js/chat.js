@@ -18,17 +18,14 @@ const storage = firebase.storage();
 let chatHistory = [];
 
 // DOM elements
-const openChatBtn = document.getElementById('open-chat');
 const chatbox = document.getElementById('chatbox');
 const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const downloadChatBtn = document.getElementById('download-chat');
 
-// Toggle chatbox and send welcome message
-openChatBtn.addEventListener('click', async () => {
-  chatbox.classList.toggle('hidden');
-  if (!chatbox.classList.contains('hidden') && chatHistory.length === 0) {
-    // Send a welcome message via OpenAI
+// Send welcome message on page load
+window.addEventListener('load', async () => {
+  if (chatHistory.length === 0) {
     try {
       const response = await fetch('/.netlify/functions/chat', {
         method: 'POST',
@@ -184,9 +181,6 @@ async function searchBills(query) {
         console.error(`Error fetching metadata for ${fileRef.name}:`, error);
       }
     }
-  }
-  return matchingBills;
-}
   }
   return matchingBills;
 }
