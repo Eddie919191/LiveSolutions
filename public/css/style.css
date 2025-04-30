@@ -15,7 +15,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px; 
+  padding: 20px;
   background: #1a1a1a;
 }
 
@@ -26,17 +26,15 @@ header {
   align-items: center;
 }
 
-header .company-name { /* Increased specificity */
+header .company-name {
   font-size: 16px;
-  color: #c0c0c0 !important; /* Force color consistency */
-  opacity: 0.7 !important; /* Force opacity consistency */
-  font-weight: 300; /* Lighter font weight for subtlety */
-  text-decoration: none; /* Remove underline from link */
+  color: #d3d3d3; /* Lighter gray to simulate #c0c0c0 at 70% opacity */
+  font-weight: 300;
+  text-decoration: none;
 }
 
 header .company-name:hover {
-  color: #fff !important; /* Brighten on hover for better visibility */
-  opacity: 1 !important; /* Full opacity on hover */
+  color: #fff;
 }
 
 .header-center {
@@ -80,15 +78,15 @@ nav ul li a:hover {
 .banner {
   position: relative;
   width: 100%;
-  height: 180px; /* Your adjusted height */
+  height: 180px;
   overflow: hidden;
 }
 
 .banner-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  filter: brightness(50%); /* Darken the entire image for text readability */
+  object-fit: cover;
+  filter: brightness(50%);
 }
 
 .banner-text {
@@ -103,7 +101,7 @@ nav ul li a:hover {
 .banner-text h1 {
   font-size: 36px;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .chat-section {
@@ -112,27 +110,27 @@ nav ul li a:hover {
 }
 
 .chatbox {
-  max-width: 600px; /* Controls the overall width */
+  max-width: 600px;
   margin: 20px auto;
   border-radius: 8px;
 }
 
 .chat-content {
-  background: #1a1a1a; /* Apply the background to the inner container */
-  padding: 20px; /* Move padding here */
-  border-radius: 8px; /* Ensure the background has rounded corners */
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 #chat-messages {
   max-height: 300px;
   overflow-y: auto;
-  margin-bottom: 20px; /* Increased spacing for better readability */
-  width: 100%; /* Ensure it takes the full width of .chat-content */
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 /* Wrapper for each message to force separate lines */
 .message-wrapper {
-  display: block; /* Ensure each message takes its own line */
+  display: block;
   margin: 10px 0;
 }
 
@@ -149,35 +147,35 @@ nav ul li a:hover {
 /* Style for chat messages */
 .bot-message,
 .user-message {
-  display: inline-block; /* Wrap background around text */
-  padding: 10px 15px; /* Add horizontal padding for better appearance */
+  display: inline-block;
+  padding: 10px 15px;
   border-radius: 8px;
   word-wrap: break-word;
-  max-width: 80%; /* Limit the width for readability */
+  max-width: 80%;
 }
 
 /* User messages on the right */
 .user-message {
-  background: #5a9bd4; /* Softer, muted blue for a soothing effect */
+  background: #5a9bd4;
   text-align: right;
 }
 
 /* Bot messages on the left */
 .bot-message {
-  background: #333; /* Darker background for bot messages */
+  background: #333;
   text-align: left;
 }
 
 .user-message + .bot-message {
-  margin-top: 20px; /* Add spacing between user and bot messages for better readability */
+  margin-top: 20px;
 }
 
 #chat-input-area {
   display: flex;
   align-items: center;
   padding: 0.5em;
-  width: 100%; /* Ensure it takes the full width of .chat-content */
-  background: #333; /* Match the bot message background for consistency */
+  width: 100%;
+  background: #333;
   border-radius: 4px;
 }
 
@@ -202,7 +200,7 @@ nav ul li a:hover {
 
 /* Download icon (using a Unicode symbol for simplicity) */
 #download-chat::before {
-  content: '↓'; /* Unicode down arrow */
+  content: '↓';
   color: #c0c0c0;
   font-size: 16px;
 }
@@ -215,26 +213,27 @@ nav ul li a:hover {
 .about-hero {
   position: relative;
   width: 100%;
-  height: 400px; /* Taller than the banner to accommodate more text */
+  height: 400px;
   overflow: hidden;
-  margin-bottom: 60px; /* Add black spacer below the hero */
+  margin-bottom: 60px;
 }
 
 .about-hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(50%); /* Darken the image for text readability */
+  filter: brightness(50%);
 }
 
 .about-hero-text {
   position: absolute;
-  top: 40px; /* Position 40px from the top to match Contact page */
+  top: 30px; /* Reduced from 40px to shift text up */
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally only */
+  transform: translateX(-50%);
   text-align: center;
   z-index: 1;
   max-width: 600px;
+  padding-bottom: 40px; /* Ensure space below the text */
 }
 
 .about-hero-text h1 {
@@ -269,12 +268,12 @@ nav ul li a:hover {
 
 .contact-info {
   max-width: 600px;
-  margin: 0 auto 20px; /* Reduced from 40px to 20px */
+  margin: 0 auto 27px; /* Increased from 20px to 27px */
   text-align: left;
 }
 
 .contact-info .company-info {
-  text-align: center; /* Center the company info */
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -287,15 +286,15 @@ nav ul li a:hover {
 .employee-list {
   list-style: none;
   padding: 0;
-  display: flex; /* Horizontal layout */
-  flex-wrap: nowrap; /* Force single row on desktop */
+  display: flex;
+  flex-wrap: nowrap;
   gap: 20px;
-  justify-content: space-between; /* Distribute items evenly */
+  justify-content: space-between;
 }
 
 .employee-list li {
-  flex: 1; /* Allow items to grow equally */
-  min-width: 150px; /* Ensure items don’t shrink too much */
+  flex: 1;
+  min-width: 150px;
   text-align: center;
 }
 
@@ -311,12 +310,12 @@ nav ul li a:hover {
 }
 
 .employee-list a {
-  color: #5a9bd4; /* Soothing blue */
+  color: #5a9bd4;
   text-decoration: none;
 }
 
 .employee-list a:hover {
-  color: #3b7bb5; /* Darker shade for hover */
+  color: #3b7bb5;
 }
 
 .contact form {
@@ -346,7 +345,7 @@ nav ul li a:hover {
 }
 
 .contact button {
-  background: #5a9bd4; /* Soothing blue */
+  background: #5a9bd4;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -355,7 +354,7 @@ nav ul li a:hover {
 }
 
 .contact button:hover {
-  background: #3b7bb5; /* Darker shade for hover */
+  background: #3b7bb5;
 }
 
 footer {
@@ -371,20 +370,21 @@ footer a {
 
 @media (max-width: 768px) {
   .banner {
-    height: 160px; /* Your adjusted height for mobile */
+    height: 160px;
   }
 
   .banner-text h1 {
-    font-size: 24px; /* Smaller font size for mobile */
+    font-size: 24px;
   }
 
   .about-hero {
-    height: 500px; /* Slightly taller on mobile to accommodate text */
-    margin-bottom: 40px; /* Slightly smaller spacer on mobile */
+    height: 500px;
+    margin-bottom: 40px;
   }
 
   .about-hero-text {
-    top: 30px; /* Slightly less spacing on mobile for better fit */
+    top: 30px;
+    padding-bottom: 30px; /* Slightly less padding on mobile */
   }
 
   .about-hero-text h1 {
@@ -401,7 +401,7 @@ footer a {
   }
 
   .header-left, .header-center, .header-right {
-    flex: none; /* Reset flex for mobile */
+    flex: none;
   }
 
   .header-left {
@@ -423,13 +423,13 @@ footer a {
   }
 
   .employee-list {
-    flex-direction: column; /* Stack vertically on mobile for better readability */
-    flex-wrap: wrap; /* Allow wrapping on mobile */
-    gap: 30px; /* Increase gap for vertical layout */
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
   }
 
   .employee-list li {
-    flex: none; /* Reset flex for vertical stacking */
-    min-width: unset; /* Remove min-width on mobile */
+    flex: none;
+    min-width: unset;
   }
 }
