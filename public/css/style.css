@@ -184,6 +184,99 @@ nav ul li a:hover {
   color: #fff;
 }
 
+/* About and Contact Page Styles */
+.about, .contact {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.about h1, .contact h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about p, .contact p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.about-img, .contact-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-member h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.contact input, .contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.contact textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background: #0056b3;
+}
+
 footer {
   text-align: center;
   padding: 20px;
@@ -225,5 +318,9 @@ footer a {
 
   .header-right {
     margin-left: auto;
+  }
+
+  .about h1, .contact h1 {
+    font-size: 28px;
   }
 }
