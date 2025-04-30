@@ -26,7 +26,7 @@ header {
   align-items: center;
 }
 
-.company-name {
+header .company-name { /* Increased specificity */
   font-size: 16px;
   color: #c0c0c0; /* Subtle gray color to blend in */
   opacity: 0.7; /* Slight transparency for a graceful look */
@@ -34,7 +34,7 @@ header {
   text-decoration: none; /* Remove underline from link */
 }
 
-.company-name:hover {
+header .company-name:hover {
   color: #fff; /* Brighten on hover for better visibility */
   opacity: 1; /* Full opacity on hover */
 }
@@ -228,9 +228,9 @@ nav ul li a:hover {
 
 .about-hero-text {
   position: absolute;
-  top: 50%;
+  top: 40px; /* Position 40px from the top to match Contact page */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%); /* Center horizontally only */
   text-align: center;
   z-index: 1;
   max-width: 600px;
@@ -268,7 +268,7 @@ nav ul li a:hover {
 
 .contact-info {
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 auto 20px; /* Reduced from 40px to 20px */
   text-align: left;
 }
 
@@ -379,6 +379,10 @@ footer a {
 
   .about-hero {
     height: 500px; /* Slightly taller on mobile to accommodate text */
+  }
+
+  .about-hero-text {
+    top: 30px; /* Slightly less spacing on mobile for better fit */
   }
 
   .about-hero-text h1 {
