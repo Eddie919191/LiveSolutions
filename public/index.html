@@ -12,11 +12,25 @@
 </head>
 <body>
   <header>
-    <h1>LS LiveSolutions</h1>
-    <p>AV-løsninger for kontorer, møterom og events</p>
+    <img src="images/logo.png" alt="LS LiveSolutions Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="#home">Hjem</a></li>
+        <li><a href="#about">Om Oss</a></li>
+        <li><a href="#solutions">Løsninger</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
-    <section id="chat-section">
+    <section class="hero" id="home">
+      <h1>AV-løsninger for kontorer, møterom og events</h1>
+      <div class="hero-images">
+        <img src="images/office.jpg" alt="Modern Office" class="hero-img">
+        <img src="images/auditorium.jpg" alt="Auditorium Setup" class="hero-img">
+      </div>
+    </section>
+    <section class="chat-section">
       <div id="chatbox">
         <div id="chat-header">Chat med LS LiveSolutions</div>
         <div id="chat-messages"></div>
@@ -26,10 +40,23 @@
         <button id="download-chat">Last ned Chat</button>
       </div>
     </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 LS LiveSolutions</p>
-  </footer>
-  <script src="js/chat.js"></script>
-</body>
-</html>
+    <section class="about" id="about">
+      <h2>Om Oss</h2>
+      <p>LS LiveSolutions tilbyr profesjonelle AV-løsninger for alle typer behov.</p>
+      <div class="team">
+        <div class="team-member">
+          <img src="images/team1.jpg" alt="Team Member 1">
+          <p>Navn 1 - Rolle</p>
+        </div>
+        <div class="team-member">
+          <img src="images/team2.jpg" alt="Team Member 2">
+          <p>Navn 2 - Rolle</p>
+        </div>
+      </div>
+    </section>
+    <section class="solutions" id="solutions">
+      <h2>Våre Løsninger</h2>
+      <p>Vi tilbyr alt fra møteromsløsninger til store arrangementer.</p>
+    </section>
+    <section class="contact" id="contact">
+      <h2>K
