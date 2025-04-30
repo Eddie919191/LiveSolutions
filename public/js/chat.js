@@ -16,7 +16,8 @@ const storage = firebase.storage();
 
 // Chat state
 let chatHistory = [];
-let orderSent = false; // Flag to track if an order has been sent
+let orderSent = false;
+let userName = ''; // Store the user's name
 
 // DOM elements
 const chatbox = document.getElementById('chatbox');
@@ -59,9 +60,9 @@ chatInput.addEventListener('keypress', async (e) => {
     appendMessage('Du', message);
     chatInput.value = '';
 
-    // Skip further processing if an order has already been sent
+    // If an order has already been sent, respond without calling OpenAI
     if (orderSent) {
-      appendMessage('LS Bot', 'Takk, Edward! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 😊');
+      appendMessage('LS Bot', `Takk, ${userName || 'du'}! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 😊`);
       return;
     }
 
@@ -99,6 +100,10 @@ chatInput.addEventListener('keypress', async (e) => {
       const hasContactInfo = message.match(/(navn|e-post|telefon)/i) && message.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i);
 
       if (isAskingForContact && hasContactInfo && !orderSent) {
+        // Extract user name from message (simple extraction for now)
+        const nameMatch = message.match(/Navn:\s*([A-Za-z\s]+)/i);
+        userName = nameMatch ? nameMatch[1].trim() : 'du';
+
         const orderDetails = {
           userMessage: message,
           products: products.map(p => p.name),
@@ -106,7 +111,7 @@ chatInput.addEventListener('keypress', async (e) => {
           timestamp: new Date().toISOString(),
         };
         await saveOrder(orderDetails);
-        orderSent = true; // Set flag to prevent further orders
+        orderSent = true;
       }
     } catch (error) {
       console.error('Error calling OpenAI:', error);
