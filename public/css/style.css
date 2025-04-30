@@ -46,7 +46,7 @@ nav ul li a:hover {
 .banner {
   position: relative;
   width: 100%;
-  height: 250px; /* Reduced height for a more banner-like proportion */
+  height: 180px; /* Reduced height for a more banner-like proportion */
   overflow: hidden;
 }
 
