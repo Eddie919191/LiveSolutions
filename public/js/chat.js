@@ -17,7 +17,7 @@ const storage = firebase.storage();
 // Chat state
 let chatHistory = [];
 let orderSent = false;
-let userName = ''; // Store the user's name
+let userName = '';
 
 // DOM elements
 const chatbox = document.getElementById('chatbox');
@@ -100,7 +100,7 @@ chatInput.addEventListener('keypress', async (e) => {
       const hasContactInfo = message.match(/(navn|e-post|telefon)/i) && message.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i);
 
       if (isAskingForContact && hasContactInfo && !orderSent) {
-        // Extract user name from message (simple extraction for now)
+        // Extract user name from message
         const nameMatch = message.match(/Navn:\s*([A-Za-z\s]+)/i);
         userName = nameMatch ? nameMatch[1].trim() : 'du';
 
@@ -136,8 +136,6 @@ downloadChatBtn.addEventListener('click', () => {
 function appendMessage(sender, message) {
   const div = document.createElement('div');
   div.textContent = `${sender}: ${message}`;
-  div.style.opacity = '0';
-  div.style.transition = 'opacity 0.5s ease-in';
   chatMessages.appendChild(div);
   setTimeout(() => {
     div.style.opacity = '1';
