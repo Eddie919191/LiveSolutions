@@ -84,7 +84,8 @@ ${avPackages.map(p => `• ${p.name}: ${p.description} (${p.priceRange})`).join(
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'gpt-3.5-turbo'
+      // model: 'gpt-4o',
       messages: messages,
       max_tokens: 800
     });
