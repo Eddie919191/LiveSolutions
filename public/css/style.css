@@ -117,7 +117,7 @@ nav ul li a:hover {
   max-height: 300px;
   overflow-y: auto;
   margin-bottom: 10px;
-  width: 100%; /* Stretch to match the input area */
+  width: 100%; /* Stretches to match the input area */
 }
 
 /* Style for chat messages */
@@ -125,7 +125,7 @@ nav ul li a:hover {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  max-width: 70%;
+  max-width: 90%; /* Increased from 70% to stretch closer to full width */
   word-wrap: break-word;
 }
 
@@ -134,6 +134,10 @@ nav ul li a:hover {
   background: #007bff; /* Blue background for user messages */
   margin-left: auto;
   text-align: right;
+}
+
+.user-message + .bot-message {
+  margin-top: 20px; /* Add spacing between user and bot messages for better readability */
 }
 
 /* Bot messages on the left */
