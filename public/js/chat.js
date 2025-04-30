@@ -13,8 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const storage = firebase.storage();
-  
-  // Rest of the chat.js code remains unchanged
 
 // Chat state
 let chatHistory = [];
@@ -32,6 +30,20 @@ openChatBtn.addEventListener('click', () => {
   chatbox.classList.toggle('hidden');
 });
 
+// Function to save orders to Firestore
+async function saveOrder(orderDetails) {
+  try {
+    await db.collection('orders').add({
+      ...orderDetails,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    appendMessage('LS Bot', 'Takk! Bestillingen din er mottatt. Vi kontakter deg snart.');
+  } catch (error) {
+    console.error('Error saving order:', error);
+    appendMessage('LS Bot', 'Beklager, kunne ikke lagre bestillingen. Prøv igjen senere.');
+  }
+}
+
 // Send message
 sendMessageBtn.addEventListener('click', async () => {
   const message = chatInput.value.trim();
@@ -47,20 +59,47 @@ sendMessageBtn.addEventListener('click', async () => {
   const bills = await searchBills(message);
 
   // Call OpenAI API
-  const response = await fetch('/.netlify/functions/chat', {
-    method: 'POST',
-    body: JSON.stringify({
-      message,
-      chatHistory,
-      products,
-      bills
-    })
-  });
-  const { reply } = await response.json();
+  try {
+    const response = await fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }, // Add headers for JSON
+      body: JSON.stringify({
+        message,
+        chatHistory,
+        products,
+        bills,
+      }),
+    });
 
-  // Add AI response
-  chatHistory.push({ role: 'assistant', content: reply });
-  appendMessage('LS Bot', reply);
+    if (!response.ok) {
+      console.error('Fetch error:', response.status, response.statusText);
+      appendMessage('LS Bot', 'Beklager, jeg kunne ikke koble til serveren. Prøv igjen senere.');
+      return;
+    }
+
+    const { reply } = await response.json();
+
+    // Add AI response
+    chatHistory.push({ role: 'assistant', content: reply });
+    appendMessage('LS Bot', reply);
+
+    // Check if the bot is asking for contact details and if the user provided them
+    const isAskingForContact = reply.match(/navn, e-postadresse og telefonnummer/i);
+    const hasContactInfo = message.match(/(navn|e-post|telefon)/i) && message.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i); // Basic email detection
+
+    if (isAskingForContact && hasContactInfo) {
+      const orderDetails = {
+        userMessage: message, // User's message with contact info
+        products: products.map(p => p.name), // List of product names
+        bills: bills.map(b => b.name), // List of relevant bills
+        timestamp: new Date().toISOString(), // Fallback timestamp
+      };
+      await saveOrder(orderDetails);
+    }
+  } catch (error) {
+    console.error('Error calling OpenAI:', error);
+    appendMessage('LS Bot', 'Beklager, noe gikk galt. Prøv igjen senere.');
+  }
 });
 
 // Download chat
@@ -85,10 +124,19 @@ function appendMessage(sender, message) {
 
 // Search products in Firebase
 async function searchProducts(query) {
-  const snapshot = await db.collection('products').get();
-  return snapshot.docs
-    .map(doc => doc.data())
-    .filter(product => product.name.toLowerCase().includes(query.toLowerCase()) || product.description.toLowerCase().includes(query.toLowerCase()));
+  try {
+    const snapshot = await db.collection('products').get();
+    return snapshot.docs
+      .map(doc => doc.data())
+      .filter(product => {
+        const name = product.name && typeof product.name === 'string' ? product.name.toLowerCase() : '';
+        const description = product.description && typeof product.description === 'string' ? product.description.toLowerCase() : '';
+        return name.includes(query.toLowerCase()) || description.includes(query.toLowerCase());
+      });
+  } catch (error) {
+    console.error('Error searching products:', error);
+    return [];
+  }
 }
 
 // Search bills in Firebase Storage
