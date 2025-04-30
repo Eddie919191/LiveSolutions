@@ -93,15 +93,15 @@ nav ul li a:hover {
   word-wrap: break-word;
 }
 
-/* User messages (Du) on the right */
-#chat-messages div:nth-child(odd) {
+/* User messages on the right */
+.user-message {
   background: #007bff; /* Blue background for user messages */
   margin-left: auto;
   text-align: right;
 }
 
-/* Bot messages (LS Bot) on the left */
-#chat-messages div:nth-child(even) {
+/* Bot messages on the left */
+.bot-message {
   background: #333; /* Darker background for bot messages */
   margin-right: auto;
   text-align: left;
