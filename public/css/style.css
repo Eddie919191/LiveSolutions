@@ -245,6 +245,11 @@ nav ul li a:hover {
   text-align: left;
 }
 
+.contact-info .company-info {
+  text-align: center; /* Center the company info */
+  margin-bottom: 20px;
+}
+
 .contact-info h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -254,15 +259,15 @@ nav ul li a:hover {
 .employee-list {
   list-style: none;
   padding: 0;
-  display: flex; /* Change to flexbox for horizontal layout */
-  flex-wrap: wrap; /* Allow wrapping if the list exceeds container width */
-  gap: 20px; /* Add spacing between employee entries */
-  justify-content: center; /* Center the items horizontally */
+  display: flex; /* Horizontal layout */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .employee-list li {
-  flex: 1 1 200px; /* Each item takes at least 200px, grows/shrinks as needed */
-  text-align: center; /* Center the content within each item */
+  flex: 1 1 200px;
+  text-align: center;
 }
 
 .employee-list h3 {
@@ -388,6 +393,10 @@ footer a {
     gap: 30px; /* Increase gap for vertical layout */
   }
 
+  .employee-list li {
+    flex: none; /* Reset flex for vertical stacking */
+  }
+}
   .employee-list li {
     flex: none; /* Reset flex for vertical stacking */
   }
