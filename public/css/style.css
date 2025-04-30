@@ -70,7 +70,7 @@ nav ul li a:hover {
   color: #c0c0c0;
 }
 
-/* Banner Section */
+/* Banner Section (Main Page) */
 .banner {
   position: relative;
   width: 100%;
@@ -184,58 +184,100 @@ nav ul li a:hover {
   color: #fff;
 }
 
-/* About and Contact Page Styles */
-.about, .contact {
+/* About Page Styles */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Taller than the banner to accommodate more text */
+  overflow: hidden;
+}
+
+.about-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%); /* Darken the image for text readability */
+}
+
+.about-hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.about-hero-text h1 {
+  font-size: 36px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+.about-hero-text p {
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin-bottom: 15px;
+}
+
+/* Contact Page Styles */
+.contact {
   text-align: center;
   padding: 40px 20px;
 }
 
-.about h1, .contact h1 {
+.contact h1 {
   font-size: 36px;
   margin-bottom: 20px;
 }
 
-.about p, .contact p {
+.contact p {
   max-width: 600px;
   margin: 0 auto 20px;
 }
 
-.about-img, .contact-img {
-  width: 100%;
+.contact-info {
   max-width: 600px;
-  height: auto;
-  margin: 20px auto;
-  display: block;
-  border-radius: 8px;
+  margin: 0 auto 40px;
+  text-align: left;
 }
 
-.team {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.team-member {
+.contact-info h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.team-member img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
+.employee-list {
+  list-style: none;
+  padding: 0;
 }
 
-.team-member h3 {
+.employee-list li {
+  margin-bottom: 20px;
+}
+
+.employee-list h3 {
   font-size: 20px;
   margin-bottom: 5px;
 }
 
-.team-member p {
+.employee-list p {
   font-size: 14px;
   color: #c0c0c0;
+  margin: 0;
+}
+
+.employee-list a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.employee-list a:hover {
+  color: #0056b3;
 }
 
 .contact form {
@@ -297,6 +339,18 @@ footer a {
     font-size: 24px; /* Smaller font size for mobile */
   }
 
+  .about-hero {
+    height: 500px; /* Slightly taller on mobile to accommodate text */
+  }
+
+  .about-hero-text h1 {
+    font-size: 28px;
+  }
+
+  .about-hero-text p {
+    font-size: 14px;
+  }
+
   nav ul {
     flex-direction: column;
     gap: 10px;
@@ -320,7 +374,7 @@ footer a {
     margin-left: auto;
   }
 
-  .about h1, .contact h1 {
+  .contact h1 {
     font-size: 28px;
   }
 }
