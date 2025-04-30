@@ -163,7 +163,7 @@ footer a {
 
 @media (max-width: 768px) {
   .banner {
-    height: 200px; /* Smaller height for mobile */
+    height: 160px; /* Smaller height for mobile */
   }
 
   .banner-text h1 {
