@@ -120,23 +120,39 @@ nav ul li a:hover {
 #chat-messages {
   max-height: 300px;
   overflow-y: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Increased spacing for better readability */
   width: 100%; /* Ensure it takes the full width of .chat-content */
 }
 
-/* Style for chat messages */
-#chat-messages div {
+/* Wrapper for each message to force separate lines */
+.message-wrapper {
+  display: block; /* Ensure each message takes its own line */
   margin: 10px 0;
-  padding: 10px;
+}
+
+/* Align bot messages to the left */
+.message-wrapper--bot {
+  text-align: left;
+}
+
+/* Align user messages to the right */
+.message-wrapper--user {
+  text-align: right;
+}
+
+/* Style for chat messages */
+.bot-message,
+.user-message {
+  display: inline-block; /* Wrap background around text */
+  padding: 10px 15px; /* Add horizontal padding for better appearance */
   border-radius: 8px;
-  max-width: 100%; /* Stretch messages to full width of #chat-messages */
   word-wrap: break-word;
+  max-width: 80%; /* Limit the width for readability */
 }
 
 /* User messages on the right */
 .user-message {
-  background: #007bff; /* Blue background for user messages */
-  margin-left: auto;
+  background: #5a9bd4; /* Softer, muted blue for a soothing effect */
   text-align: right;
 }
 
@@ -147,7 +163,6 @@ nav ul li a:hover {
 /* Bot messages on the left */
 .bot-message {
   background: #333; /* Darker background for bot messages */
-  margin-right: auto;
   text-align: left;
 }
 
@@ -260,7 +275,7 @@ nav ul li a:hover {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
-}
+
 
 .employee-list {
   list-style: none;
@@ -288,12 +303,12 @@ nav ul li a:hover {
 }
 
 .employee-list a {
-  color: #007bff;
+  color: #5a9bd4; /* Soothing blue */
   text-decoration: none;
 }
 
 .employee-list a:hover {
-  color: #0056b3;
+  color: #3b7bb5; /* Darker shade for hover */
 }
 
 .contact form {
@@ -323,7 +338,7 @@ nav ul li a:hover {
 }
 
 .contact button {
-  background: #007bff;
+  background: #5a9bd4; /* Soothing blue */
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -332,7 +347,7 @@ nav ul li a:hover {
 }
 
 .contact button:hover {
-  background: #0056b3;
+  background: #3b7bb5; /* Darker shade for hover */
 }
 
 footer {
