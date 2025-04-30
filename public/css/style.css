@@ -254,10 +254,15 @@ nav ul li a:hover {
 .employee-list {
   list-style: none;
   padding: 0;
+  display: flex; /* Change to flexbox for horizontal layout */
+  flex-wrap: wrap; /* Allow wrapping if the list exceeds container width */
+  gap: 20px; /* Add spacing between employee entries */
+  justify-content: center; /* Center the items horizontally */
 }
 
 .employee-list li {
-  margin-bottom: 20px;
+  flex: 1 1 200px; /* Each item takes at least 200px, grows/shrinks as needed */
+  text-align: center; /* Center the content within each item */
 }
 
 .employee-list h3 {
@@ -376,5 +381,14 @@ footer a {
 
   .contact h1 {
     font-size: 28px;
+  }
+
+  .employee-list {
+    flex-direction: column; /* Stack vertically on mobile for better readability */
+    gap: 30px; /* Increase gap for vertical layout */
+  }
+
+  .employee-list li {
+    flex: none; /* Reset flex for vertical stacking */
   }
 }
