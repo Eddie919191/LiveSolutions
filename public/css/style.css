@@ -120,22 +120,22 @@ nav ul li a:hover {
 #chat-messages {
   max-height: 300px;
   overflow-y: auto;
-  margin-bottom: 20px; /* Increased spacing for better readability */
+  margin-bottom: 10px;
   width: 100%; /* Ensure it takes the full width of .chat-content */
 }
 
 /* Style for chat messages */
 #chat-messages div {
-  display: inline-block; /* Make the background wrap the text */
   margin: 10px 0;
-  padding: 10px 15px; /* Add horizontal padding for better appearance */
+  padding: 10px;
   border-radius: 8px;
+  max-width: 100%; /* Stretch messages to full width of #chat-messages */
   word-wrap: break-word;
 }
 
 /* User messages on the right */
 .user-message {
-  background: #5a9bd4; /* Softer, muted blue for a soothing effect */
+  background: #007bff; /* Blue background for user messages */
   margin-left: auto;
   text-align: right;
 }
@@ -156,7 +156,7 @@ nav ul li a:hover {
   align-items: center;
   padding: 0.5em;
   width: 100%; /* Ensure it takes the full width of .chat-content */
-  background: #333; /* Match the bot message background */
+  background: #333; /* Match the bot message background for consistency */
   border-radius: 4px;
 }
 
@@ -288,12 +288,12 @@ nav ul li a:hover {
 }
 
 .employee-list a {
-  color: #5a9bd4; /* Match the soothing blue */
+  color: #007bff;
   text-decoration: none;
 }
 
 .employee-list a:hover {
-  color: #3b7bb5; /* Darker shade for hover */
+  color: #0056b3;
 }
 
 .contact form {
@@ -323,7 +323,7 @@ nav ul li a:hover {
 }
 
 .contact button {
-  background: #5a9bd4; /* Softer blue for the button */
+  background: #007bff;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -332,7 +332,7 @@ nav ul li a:hover {
 }
 
 .contact button:hover {
-  background: #3b7bb5; /* Darker shade for hover */
+  background: #0056b3;
 }
 
 footer {
@@ -382,7 +382,7 @@ footer a {
 
   .header-center {
     position: absolute;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
   }
 
