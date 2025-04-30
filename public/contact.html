@@ -49,26 +49,10 @@
           </li>
         </ul>
       </div>
-      <form id="contact-form">
-        <label for="name">Navn:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">E-post:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Melding:</label>
-        <textarea id="message" name="message" required></textarea>
-        <label><input type="checkbox" name="consent" required> Jeg samtykker til at mine data lagres i henhold til <a href="/privacy.html">personvernerklæringen</a>.</label>
-        <button type="submit">Send</button>
-      </form>
     </section>
   </main>
   <footer>
     <p>LS LiveSolutions AS<br>Eplehagan 4, 3084 Holmestrand<br>Telefon: +47 123 45 678<br>E-post: info@livesolutions.no<br><a href="/privacy.html">Personvernerklæring</a></p>
   </footer>
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      alert('Form submission placeholder. Add Netlify Forms or Firebase integration later.');
-    });
-  </script>
 </body>
 </html>
