@@ -84,64 +84,63 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
+/* Style for chat messages */
+#chat-messages div {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* User messages (Du) on the right */
+#chat-messages div:nth-child(odd) {
+  background: #007bff; /* Blue background for user messages */
+  margin-left: auto;
+  text-align: right;
+}
+
+/* Bot messages (LS Bot) on the left */
+#chat-messages div:nth-child(even) {
+  background: #333; /* Darker background for bot messages */
+  margin-right: auto;
+  text-align: left;
+}
+
+#chat-input-area {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+}
+
 #chat-input {
-  width: 80%;
+  flex: 1;
   padding: 10px;
   background: #333;
   color: #fff;
   border: none;
   border-radius: 4px;
+  margin-right: 10px;
 }
 
 #download-chat {
-  background: #c0c0c0;
-  color: #000;
+  background: none;
   border: none;
-  padding: 10px;
   cursor: pointer;
-  margin-left: 10px;
-}
-
-.about, .solutions, .contact {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.team {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.team-member img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.contact form {
-  max-width: 600px;
-  margin: 20px auto;
+  padding: 5px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
 }
 
-.contact input, .contact textarea {
-  padding: 10px;
-  background: #333;
+/* Download icon (using a Unicode symbol for simplicity) */
+#download-chat::before {
+  content: '↓'; /* Unicode down arrow */
+  color: #c0c0c0;
+  font-size: 16px;
+}
+
+#download-chat:hover::before {
   color: #fff;
-  border: none;
-  border-radius: 4px;
-}
-
-.contact button {
-  background: #c0c0c0;
-  color: #000;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
 }
 
 footer {
