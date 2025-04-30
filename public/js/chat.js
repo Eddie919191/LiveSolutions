@@ -44,7 +44,7 @@ window.addEventListener('load', async () => {
       appendMessage('LS Bot', reply);
     } catch (error) {
       console.error('Error sending welcome message:', error);
-      appendMessage('LS Bot', 'Hei! Jeg er LS Bot. Trenger du hjelp med kontorutstyr eller musikkarrangement?');
+      appendMessage('LS Bot', 'Velkommen til LS! Hvordan kan jeg hjelpe deg? 🤖');
     }
   }
 });
@@ -62,7 +62,7 @@ chatInput.addEventListener('keypress', async (e) => {
 
     // If an order has already been sent, respond without calling OpenAI
     if (orderSent) {
-      appendMessage('LS Bot', `Takk, ${userName || 'du'}! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 😊`);
+      appendMessage('LS Bot', `Takk, ${userName || 'du'}! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 🤖`);
       return;
     }
 
