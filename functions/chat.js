@@ -60,6 +60,7 @@ exports.handler = async (event) => {
 
       5. **Håndter bekreftelse av tilbud:**
          - Hvis chathistorikken viser at du allerede har bedt om kontaktinformasjon og kunden har gitt det (navn og e-postadresse er til stede), og de nå sier "Gjerne", "Ja", eller lignende, si: "Takk! Vi har mottatt informasjonen din, og et detaljert tilbud vil bli sendt til din e-postadresse snart. Er det noe annet jeg kan hjelpe deg med? 😊"
+         - Hvis chathistorikken viser at du allerede har sagt at tilbudet er sendt (sjekk etter "et detaljert tilbud vil bli sendt" i dine tidligere svar), si: "Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 😊"
          - Hvis de ikke har gitt kontaktinformasjon ennå, fortsett å spørre.
 
       6. **Generelle svar:**
@@ -74,7 +75,7 @@ exports.handler = async (event) => {
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-3.5-turbo', // Switch to 'gpt-4o' tonight when available
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 500,
     });
