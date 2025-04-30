@@ -106,18 +106,22 @@ nav ul li a:hover {
 }
 
 .chatbox {
-  background: #1a1a1a;
-  padding: 20px;
-  max-width: 600px;
+  max-width: 600px; /* Controls the overall width */
   margin: 20px auto;
   border-radius: 8px;
+}
+
+.chat-content {
+  background: #1a1a1a; /* Apply the background to the inner container */
+  padding: 20px; /* Move padding here */
+  border-radius: 8px; /* Ensure the background has rounded corners */
 }
 
 #chat-messages {
   max-height: 300px;
   overflow-y: auto;
   margin-bottom: 10px;
-  width: 100%; /* Stretches to match the input area */
+  width: 100%; /* Ensure it takes the full width of .chat-content */
 }
 
 /* Style for chat messages */
@@ -125,7 +129,7 @@ nav ul li a:hover {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  max-width: 90%; /* Increased from 70% to stretch closer to full width */
+  max-width: 100%; /* Stretch messages to full width of #chat-messages */
   word-wrap: break-word;
 }
 
@@ -151,7 +155,9 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   padding: 0.5em;
-  width: 100%; /* Already stretches full width */
+  width: 100%; /* Ensure it takes the full width of .chat-content */
+  background: #333; /* Match the bot message background for consistency */
+  border-radius: 4px;
 }
 
 #chat-input {
@@ -393,10 +399,6 @@ footer a {
     gap: 30px; /* Increase gap for vertical layout */
   }
 
-  .employee-list li {
-    flex: none; /* Reset flex for vertical stacking */
-  }
-}
   .employee-list li {
     flex: none; /* Reset flex for vertical stacking */
   }
