@@ -133,7 +133,7 @@ Det er ikke meningen at du skal overbevise – bare forstå og bidra.
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o',
       messages: messages,
       max_tokens: 800
     });
