@@ -25,7 +25,18 @@ const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const downloadChatBtn = document.getElementById('download-chat');
 
-// Send welcome message on page load
+// Load chat history from localStorage on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const savedHistory = localStorage.getItem('chatHistory');
+  if (savedHistory) {
+    chatHistory = JSON.parse(savedHistory);
+    chatHistory.forEach(msg => {
+      appendMessage(msg.role === 'user' ? 'Du' : 'LS Bot', msg.content);
+    });
+  }
+});
+
+// Send welcome message if chat history is empty
 window.addEventListener('load', async () => {
   if (chatHistory.length === 0) {
     try {
@@ -42,9 +53,15 @@ window.addEventListener('load', async () => {
       const { reply } = await response.json();
       chatHistory.push({ role: 'assistant', content: reply });
       appendMessage('LS Bot', reply);
+      // Save to localStorage
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
     } catch (error) {
       console.error('Error sending welcome message:', error);
-      appendMessage('LS Bot', 'Velkommen til LS! Hvordan kan jeg hjelpe deg? 🤖');
+      const fallbackMessage = 'Velkommen til LS! Hvordan kan jeg hjelpe deg? 🤖';
+      chatHistory.push({ role: 'assistant', content: fallbackMessage });
+      appendMessage('LS Bot', fallbackMessage);
+      // Save to localStorage
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
     }
   }
 });
@@ -60,9 +77,16 @@ chatInput.addEventListener('keypress', async (e) => {
     appendMessage('Du', message);
     chatInput.value = '';
 
+    // Save to localStorage
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+
     // If an order has already been sent, respond without calling OpenAI
     if (orderSent) {
-      appendMessage('LS Bot', `Takk, ${userName || 'du'}! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 🤖`);
+      const reply = `Takk, ${userName || 'du'}! Tilbudet er allerede sendt til din e-postadresse. Er det noe annet jeg kan hjelpe deg med? 🤖`;
+      chatHistory.push({ role: 'assistant', content: reply });
+      appendMessage('LS Bot', reply);
+      // Save to localStorage
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
       return;
     }
 
@@ -85,7 +109,11 @@ chatInput.addEventListener('keypress', async (e) => {
 
       if (!response.ok) {
         console.error('Fetch error:', response.status, response.statusText);
-        appendMessage('LS Bot', 'Beklager, jeg kunne ikke koble til serveren. Prøv igjen senere.');
+        const errorMessage = 'Beklager, jeg kunne ikke koble til serveren. Prøv igjen senere.';
+        chatHistory.push({ role: 'assistant', content: errorMessage });
+        appendMessage('LS Bot', errorMessage);
+        // Save to localStorage
+        localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
         return;
       }
 
@@ -94,6 +122,8 @@ chatInput.addEventListener('keypress', async (e) => {
       // Add AI response
       chatHistory.push({ role: 'assistant', content: reply });
       appendMessage('LS Bot', reply);
+      // Save to localStorage
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
 
       // Check if the bot is asking for contact details and if the user provided them
       const isAskingForContact = reply.match(/navn, e-postadresse og telefonnummer/i);
@@ -113,11 +143,19 @@ chatInput.addEventListener('keypress', async (e) => {
         await saveOrder(orderDetails);
         orderSent = true;
         // Append confirmation message after saving order
-        appendMessage('LS Bot', 'Takk! Bestillingen din er mottatt. Vi kontakter deg snart.');
+        const confirmationMessage = 'Takk! Bestillingen din er mottatt. Vi kontakter deg snart.';
+        chatHistory.push({ role: 'assistant', content: confirmationMessage });
+        appendMessage('LS Bot', confirmationMessage);
+        // Save to localStorage
+        localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
       }
     } catch (error) {
       console.error('Error calling OpenAI:', error);
-      appendMessage('LS Bot', 'Beklager, noe gikk galt. Prøv igjen senere.');
+      const errorMessage = 'Beklager, noe gikk galt. Prøv igjen senere.';
+      chatHistory.push({ role: 'assistant', content: errorMessage });
+      appendMessage('LS Bot', errorMessage);
+      // Save to localStorage
+      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
     }
   }
 });
@@ -161,7 +199,11 @@ async function saveOrder(orderDetails) {
     });
   } catch (error) {
     console.error('Error saving order:', error);
-    appendMessage('LS Bot', 'Beklager, kunne ikke lagre bestillingen. Prøv igjen senere.');
+    const errorMessage = 'Beklager, kunne ikke lagre bestillingen. Prøv igjen senere.';
+    chatHistory.push({ role: 'assistant', content: errorMessage });
+    appendMessage('LS Bot', errorMessage);
+    // Save to localStorage
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
   }
 }
 
