@@ -136,13 +136,18 @@ downloadChatBtn.addEventListener('click', () => {
 
 // Append message to chat with fade-in effect
 function appendMessage(sender, message) {
-  const div = document.createElement('div');
-  div.textContent = message;
-  // Add class based on sender for styling
-  div.classList.add(sender === 'Du' ? 'user-message' : 'bot-message');
-  chatMessages.appendChild(div);
+  const messageWrapper = document.createElement('div');
+  messageWrapper.className = `message-wrapper message-wrapper--${sender === 'Du' ? 'user' : 'bot'}`;
+
+  const messageElement = document.createElement('div');
+  messageElement.className = sender === 'Du' ? 'user-message' : 'bot-message';
+  messageElement.textContent = message;
+
+  messageWrapper.appendChild(messageElement);
+  chatMessages.appendChild(messageWrapper);
+
   setTimeout(() => {
-    div.style.opacity = '1';
+    messageElement.style.opacity = '1';
   }, 10);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
