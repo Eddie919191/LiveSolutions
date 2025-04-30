@@ -8,19 +8,27 @@
 </head>
 <body>
   <header>
-    <img src="img/logo.png" alt="LS LiveSolutions Logo" class="logo">
-    <nav>
+    <div class="header-left">
+      <span class="company-name">LiveSolutions</span>
+    </div>
+    <div class="header-center">
+      <a href="index.html">
+        <img src="img/logo.png" alt="LS LiveSolutions Logo" class="logo">
+      </a>
+    </div>
+    <nav class="header-right">
       <ul>
-        <li><a href="index.html">Hjem</a></li>
         <li><a href="about.html">Om Oss</a></li>
-        <li><a href="solutions.html">Tidligere Løsninger</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <section class="contact">
       <h1>Kontakt Oss</h1>
-      <p>LS LiveSolutions AS<br>[Lageradresse, f.eks. Industriveien 123, 1234 Oslo]<br>Telefon: [+47 123 45 678]<br>E-post: [info@livesolutionss.no]</p>
+      <p>Har du spørsmål om AV-løsninger for ditt kontor eller møterom? Ta kontakt med oss, så hjelper vi deg med å finne den perfekte løsningen!</p>
+      <img src="img/office-team.jpg" alt="Our Team at Work" class="contact-img">
+      <p>LS LiveSolutions AS<br>Industriveien 123, 1234 Oslo<br>Telefon: +47 123 45 678<br>E-post: info@livesolutions.no</p>
       <form id="contact-form">
         <label for="name">Navn:</label>
         <input type="text" id="name" name="name" required>
@@ -34,7 +42,7 @@
     </section>
   </main>
   <footer>
-    <p>LS LiveSolutions AS<br>[Lageradresse]<br>Telefon: [+47 123 45 678]<br>E-post: [info@livesolutionss.no]<br><a href="/privacy.html">Personvernerklæring</a></p>
+    <p>LS LiveSolutions AS<br>Industriveien 123, 1234 Oslo<br>Telefon: +47 123 45 678<br>E-post: info@livesolutions.no<br><a href="/privacy.html">Personvernerklæring</a></p>
   </footer>
   <script>
     document.getElementById('contact-form').addEventListener('submit', async (e) => {
