@@ -58,7 +58,11 @@ exports.handler = async (event) => {
          - Hvis de har gitt nok informasjon til å foreslå en løsning, si: "For å gi deg et nøyaktig tilbud, kan jeg få ditt navn, e-postadresse og telefonnummer? Da sender vi deg et detaljert tilbud med en gang!"
          - Hvis de ikke har gitt nok informasjon, still flere spørsmål eller tilby en befaring.
 
-      5. **Generelle svar:**
+      5. **Håndter bekreftelse av tilbud:**
+         - Hvis chathistorikken viser at du allerede har bedt om kontaktinformasjon og kunden har gitt det (navn og e-postadresse er til stede), og de nå sier "Gjerne", "Ja", eller lignende, si: "Takk! Vi har mottatt informasjonen din, og et detaljert tilbud vil bli sendt til din e-postadresse snart. Er det noe annet jeg kan hjelpe deg med? 😊"
+         - Hvis de ikke har gitt kontaktinformasjon ennå, fortsett å spørre.
+
+      6. **Generelle svar:**
          - Hvis kunden spør hva vi selger, si: "Vi tilbyr et bredt utvalg AV-løsninger, inkludert AV-utstyr, skjermer, PC-er, lydsystemer og alt du trenger for møterom, auditorier og events. Hva leter du etter?"
          - Hvis det finnes relevante tidligere prosjekter, nevn dem kort: "Vi har tidligere satt opp et møterom for Company X med en 4K-skjerm og lydsystem – noe lignende kan passe for deg!"
 
