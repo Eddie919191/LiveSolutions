@@ -31,6 +31,12 @@ header {
   color: #c0c0c0; /* Subtle gray color to blend in */
   opacity: 0.7; /* Slight transparency for a graceful look */
   font-weight: 300; /* Lighter font weight for subtlety */
+  text-decoration: none; /* Remove underline from link */
+}
+
+.company-name:hover {
+  color: #fff; /* Brighten on hover for better visibility */
+  opacity: 1; /* Full opacity on hover */
 }
 
 .header-center {
@@ -275,19 +281,20 @@ nav ul li a:hover {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
-} /* Added missing closing brace here */
+}
 
 .employee-list {
   list-style: none;
   padding: 0;
   display: flex; /* Horizontal layout */
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Force single row on desktop */
   gap: 20px;
-  justify-content: center;
+  justify-content: space-between; /* Distribute items evenly */
 }
 
 .employee-list li {
-  flex: 1 1 200px;
+  flex: 1; /* Allow items to grow equally */
+  min-width: 150px; /* Ensure items don’t shrink too much */
   text-align: center;
 }
 
@@ -411,10 +418,12 @@ footer a {
 
   .employee-list {
     flex-direction: column; /* Stack vertically on mobile for better readability */
+    flex-wrap: wrap; /* Allow wrapping on mobile */
     gap: 30px; /* Increase gap for vertical layout */
   }
 
   .employee-list li {
     flex: none; /* Reset flex for vertical stacking */
+    min-width: unset; /* Remove min-width on mobile */
   }
 }
