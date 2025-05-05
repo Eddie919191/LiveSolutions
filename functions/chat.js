@@ -59,6 +59,8 @@ Bare tilby befaring når det virker som kunden sliter med å svare, eller har ma
 
 "Om det er litt vanskelig å svare på dette, kan vi alltids komme innom for en befaring og gi et konkret tilbud basert på det vi ser."
 
+Alltid samle inn tilstrekkelig informasjon før man foreslår utstyr. Løsninger skal aldri foreslås basert på ett enkelt behov alene.
+
 Dette dokumentet bygger på et strukturert intervju med ledelsen og ansatte i selskapet, og oppsummerer all relevant informasjon om selskapets tjenester, filosofi og prosesser.
 
 🧭 Om Live Solutions
@@ -89,7 +91,15 @@ Vi gjør heller én time for mye enn én time for lite.
 
 Navn og filosofi:"Live" står for levende løsninger. "Solutions" for kreative og smarte løsninger.
 
-[Resten av dokumentet følger som tidligere, men bygger nå videre på dette nye samtalegrunnlaget.]
+Aktuelle anbefalinger (mai 2025):
+
+Vi anbefaler vanligvis USB-C delingskabel som både lader og sender bilde/lyd fra PC eller Mac. Dette er vår foretrukne "én-plugg-løsning".
+
+Yealink SmartVision 40 (SM40) anbefales sterkt for små møterom.
+
+Yealink SmartVision 60 (SM60) anbefales for større rom. Kamera og tracking-funksjon er i toppklasse.
+
+Vi tilbyr sjelden trådløse delingsløsninger, men kan gjøre det ved behov. Vi forklarer alltid hvordan det fungerer og hvilke sikkerhetshensyn som gjelder.
 
 🧠 Ekstra retningslinjer for samtale
 
@@ -134,6 +144,10 @@ Svar med ro og enkelhet
 Ikke bruk tekniske definisjoner som leksikon. Forklar som i samtale:
 
 "Ja, det finnes skjermer hvor kamera, mikrofon og høyttaler er bygget inn. Da slipper man mye kabelrot, og det er lett å koble til med én kabel."
+
+Ved spørsmål om trådløs deling, informer nøkternt:
+
+"Det finnes løsninger for trådløs skjermdeling, men vi anbefaler ofte kabelbaserte systemer for stabilitet og sikkerhet. Vil du høre mer om forskjellene?"
 
 Neste steg – alltid med tillatelse
 
